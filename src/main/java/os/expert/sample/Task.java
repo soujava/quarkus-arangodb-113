@@ -1,4 +1,8 @@
 package os.expert.sample;
 
-public record Task(String title, String description) {
+import jakarta.nosql.Column;
+import jakarta.nosql.Embeddable;
+
+@Embeddable(Embeddable.EmbeddableType.GROUPING)
+public record Task(@Column String title, @Column String description) {
 }
