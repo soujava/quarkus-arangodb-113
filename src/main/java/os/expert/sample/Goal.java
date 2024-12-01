@@ -1,6 +1,11 @@
 package os.expert.sample;
 
+import jakarta.nosql.Column;
+import jakarta.nosql.Entity;
+import jakarta.nosql.Id;
+
 import java.util.List;
 
-public record Goal(String title, String description, List<Task> tasks) {
+@Entity
+public record Goal(@Id String title, @Column String description, @Column List<Task> tasks) {
 }
