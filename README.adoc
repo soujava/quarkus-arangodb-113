@@ -1,2 +1,3 @@
-# quarkus-arangodb-113
+= quarkus-arangodb
+
 ArangoDB quarkus using Eclipse JNosQL 1.1.3
