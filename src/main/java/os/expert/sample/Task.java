@@ -1,4 +1,4 @@
 package os.expert.sample;
 
-public record Task() {
+public record Task(String title, String description) {
 }
