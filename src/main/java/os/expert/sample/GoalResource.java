@@ -2,6 +2,7 @@ package os.expert.sample;
 
 
 import jakarta.inject.Inject;
+import jakarta.ws.rs.DefaultValue;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
@@ -28,7 +29,8 @@ public class GoalResource {
     }
 
     @GET
-    public List<Goal> goals(@QueryParam("page") int page,@QueryParam("size") int size) {
+    public List<Goal> goals(@QueryParam("page") @DefaultValue("1") int page,
+                            @QueryParam("size") @DefaultValue("10") int size) {
         LOGGER.info("Listing goals, page: " + page + ", size: " + size);
         return goalService.findGoals(page, size);
     }
