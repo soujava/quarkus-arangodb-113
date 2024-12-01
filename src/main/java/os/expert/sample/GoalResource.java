@@ -2,16 +2,22 @@ package os.expert.sample;
 
 
 import jakarta.inject.Inject;
+import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DefaultValue;
 import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
 import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
+import jakarta.ws.rs.core.MediaType;
 
 import java.util.List;
 import java.util.logging.Logger;
 
 @Path("/goals")
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
 public class GoalResource {
 
     private static final Logger LOGGER = Logger.getLogger(GoalResource.class.getName());
@@ -35,7 +41,7 @@ public class GoalResource {
         return goalService.findGoals(page, size);
     }
 
-    @PUT
+    @POST
     public Goal create(Goal goal) {
         LOGGER.info("Creating a goal: " + goal);
         return goalService.save(goal);
