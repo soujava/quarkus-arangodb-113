@@ -1,5 +1,9 @@
 package os.expert.sample;
 
+import jakarta.data.Order;
+import jakarta.data.Sort;
+import jakarta.data.page.Page;
+import jakarta.data.page.PageRequest;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.eclipse.jnosql.mapping.Database;
@@ -23,7 +27,10 @@ public class GoalService {
     }
 
     public List<Goal> findGoals(int page, int size) {
-        return null;
+        PageRequest pageRequest = PageRequest.ofPage(page).size(size);
+        Order<Goal> priority = Order.by(Sort.asc("priority"));
+        Page<Goal> goals = newYearWishes.findAll(pageRequest, priority);
+        return goals.content();
     }
 
     public Goal save(Goal goal) {
