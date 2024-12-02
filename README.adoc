@@ -1,8 +1,33 @@
 = arangodb-sample
+:toc: auto
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/.
+
+== About ArangoDB
+
+ArangoDB is a multi-model database that supports three data models: key/value, document, and graph, using a unified query language called AQL (Arango Query Language).
+This flexibility makes it an excellent choice for projects that require relational data, document storage, or graph processing, without the need for separate databases.
+
+Some features of ArangoDB include:
+* Native multi-model support for graph, document, and key/value data.
+* AQL (Arango Query Language) for powerful and flexible querying.
+* Horizontal scaling and clustering capabilities.
+* Built-in support for ACID transactions.
+* Easy integration with programming languages, including Java.
+
+To learn more about ArangoDB, visit the official website: https://www.arangodb.com/.
+
+== Running ArangoDB
+
+To execute an instance of ArangoDB locally using Docker, you can use the following command:
+
+[source,shell]
+----
+docker run -e ARANGO_NO_AUTH=1 -d --name arangodb-instance -p 8529:8529 -d arangodb/arangodb
+----
+
 
 == Running the application in dev mode
 
