@@ -10,6 +10,7 @@ import org.eclipse.jnosql.mapping.Database;
 import org.eclipse.jnosql.mapping.DatabaseType;
 
 import java.util.List;
+import java.util.Optional;
 
 @ApplicationScoped
 public class GoalService {
@@ -35,5 +36,10 @@ public class GoalService {
 
     public Goal save(Goal goal) {
         return newYearWishes.save(goal);
+    }
+
+    public Optional<Goal> findById(String id) {
+        var keyPrefix = "Goal/" +id;
+        return newYearWishes.findById(keyPrefix);
     }
 }
